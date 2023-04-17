@@ -7,13 +7,13 @@ const ActionButtons = () => (
       <Button
         color='red'
         content='Delete'
-        icon={DeleteIcon}
+        // icon={DeleteIcon}
         label={{ basic: true, color: 'red', pointing: 'left' }}
       />
       <Button
         color='blue'
         content='Edit'
-        icon={EditIcon}
+        // icon={EditIcon}
         label={{
           basic: true,
           color: 'blue',

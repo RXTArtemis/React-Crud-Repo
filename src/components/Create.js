@@ -3,6 +3,7 @@ import { Button, Checkbox, Form } from 'semantic-ui-react'
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 // let history=useHistory();
+import './Form.css';
 
 export default function Create(){
     let history =  useHistory();
@@ -25,7 +26,9 @@ export default function Create(){
     }
     return(
         <div>
+            
             <Form className='create-form'>
+                <h1>Create an Account</h1>
                  <Form.Field>
                  <label>First Name</label>
                      <input placeholder='First Name' onChange={(e)=> setFirstName(e.target.value)} />

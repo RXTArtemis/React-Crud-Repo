@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {Table, Button, TableHeader} from 'semantic-ui-react';
+import {Table, Button} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import ActionButtons from './ActionButtons';
 import AddButton from './AddButton';
@@ -40,13 +40,14 @@ const getData=()=>{
 }
 
     return(
+        //may have to change table to add new students instead of student information
         <div>
-            <Table>
-                <TableHeader> New Users</TableHeader>
-                <TableRow>Add User Information:</TableRow>
+            {/* <Table>
+                <Table.Header> New Student</Table.Header>
+                <Table.Row>Add Student Information</Table.Row>
                 <AddButton/>
             </Table>
-            <span></span>
+            <span></span> */}
              <Table>
                  <Table.Header>
                      <Table.Row>
@@ -58,7 +59,9 @@ const getData=()=>{
                      </Table.Row>
                   
                 </Table.Header>
-{/* 
+  
+      
+
                 <Table.HeaderCell>Update</Table.HeaderCell>
                 <Link to='/update'>
                      <Table.Cell>
@@ -67,7 +70,7 @@ const getData=()=>{
                 </Link>
                 <Table.Cell>
                     <Button onClick={()=>onDelete(data.id)}>Delete</Button>
-                </Table.Cell> */}
+                </Table.Cell>
 
              <Table.Body>
                 {APIData.map((data, index)=>{
@@ -75,7 +78,7 @@ const getData=()=>{
                         <Table.Row key={index}>
                             <Table.Cell>{data.firstName}</Table.Cell>
                             <Table.Cell>{data.lastName}</Table.Cell>
-                            <Table.Cell>{data.checkbox ? 'Checked' : 'Unchecked'}</Table.Cell>
+                            <Table.Cell>{data.checkbox ? 'Registered' : 'Unregistered'}</Table.Cell>
                             <ActionButtons/>
                         </Table.Row>
                     )

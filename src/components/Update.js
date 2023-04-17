@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Checkbox, Form} from 'semantic-ui-react';
+import {Button} from 'semantic-ui-react';
 import axios from 'axios';
-import {useHistory} from 'react-router';
 
+import EmergencyContacts from './EmergencyContacts';
+import './Form.css';
+
+//make sure to have all crud applications
 
 
 export default function Update(){
-    let history = useHistory();
-    const [id,setID] = useState(null);
+  
+    const [id,setID] = useState('');
 
 useEffect(()=>{
     setID(localStorage.getItem('ID'))
@@ -18,7 +21,7 @@ useEffect(()=>{
     setAddress(localStorage.getItem('Address'));
     setCity(localStorage.getItem('City'));
     setState(localStorage.getItem('State'));
-    setZipCode(localStorage.getItam('Zip Code'));
+    setZipCode(localStorage.getItem('Zip Code'));
     setDateOfBirth(localStorage.getItem('Date of Birth'));
     setPhoneNumber(localStorage.getItem('Phone Number'));
     setEmail(localStorage.getItem('Email'));
@@ -74,50 +77,86 @@ const updateAPIData = () =>{
     const [highschool, setHighschool]=useState('');
     const [GPA, setGPA] = useState('');
 
+    //maybe do a drop down for these forms with buttons on the side or the bottom..
     return(
         <div>
-            <Form className="create-form">
+            <form className="create-form">
                 <h2>Basic Student Information</h2>
-                <Form.Field>
+                <div>
                     <label>First Name</label>
                     <input placeholder='First Name' onChange={(e)=>setFirstName(e.target.value)}></input>
-                </Form.Field>
-                <Form.Field>
+                </div>
+                <div>
                     <label>Last Name</label>
                     <input placeholder='Last Name' onChange={(e)=>setLastName(e.target.value)}></input>
-                </Form.Field>
-                <Form.Field>
+                </div>
+
+                <div>
+                    <label>Date of Birth</label>
+                    <input placeholder='Date of Birth' onChange={(e)=>setDateOfBirth(e.target.value)}></input>
+                </div>
+                <div>
+                    <label>E-mail</label>
+                    <input placeholder='E-mail' onChange={(e)=>setEmail(e.target.value)}></input>
+                </div>
+                <div>
+                    <label>Phone Number</label>
+                    <input placeholder='Phone Number' onChange={(e)=>setPhoneNumber(e.target.value)}></input>
+                </div>
+
+                <div>
                     <label>Address</label>
                     <input placeholder='Address' onChange={(e)=>setAddress(e.target.value)}></input>
                     {/* <Checkbox label='I agree to the Terms and Conditions' onChange={(e)=>setCheckbox(!checkbox)}/>   */}
-                </Form.Field>
-                <Form.Field>
+                </div>
+                <div>
                     <label>City</label>
                     <input placeholder='City' onChange={(e)=>setCity(e.target.value)}></input>
-                </Form.Field>
-                <Form.Field>
+                </div>
+                <div>
                     <label>State</label>
                     <input placeholder='State' onChange={(e)=>setState(e.target.value)}></input>
-                </Form.Field>
+                </div>
 
-                <Form.Field>
+                <div>
                     <label>Zip Code</label>
                     <input placeholder='Zip Code' onChange={(e)=>setZipCode(e.target.value)}></input>
-                </Form.Field>
-                <Form.Field>
-                    <label></label>
-                    <input placeholder='Last Name' onChange={(e)=>setLastName(e.target.value)}></input>
-                </Form.Field>
-                <Form.Field>
-                    <label>Last Name</label>
-                    <input placeholder='Last Name' onChange={(e)=>setLastName(e.target.value)}></input>
-                </Form.Field>
-                <Form.Field>
-                    <label>Last Name</label>
-                    <input placeholder='Last Name' onChange={(e)=>setLastName(e.target.value)}></input>
-                </Form.Field>
-                <Button type='submit' onClick={updateAPIData}>Update</Button>
-            </Form>
+                </div>
+
+                <Button type='submit' onClick={updateAPIData}>Save Information</Button>
+            </form>
+            <span></span>
+            <form className='academic-form'>
+            <h2>Academic Information</h2>
+            <div>
+                    <label>Student ID</label>
+                    <input placeholder='Student ID' onChange={(e)=>setStudentID(e.target.value)}></input>
+                </div>
+                <div>
+                    <label>GPA</label>
+                    <input placeholder='GPA' onChange={(e)=>setGPA(e.target.value)}></input>
+                </div>
+                <div>
+                    <label>Program of Study</label>
+                    <input placeholder='Program of Study' onChange={(e)=>setProgramOfStudy(e.target.value)}></input>
+                </div>
+                <div>
+                    <label>Date Enrolled</label>
+                    <input placeholder='Date Enrolled' onChange={(e)=>setDateEnrolled(e.target.value)}></input>
+                </div>
+                <div>
+                    <label>High School</label>
+                    <input placeholder='High School' onChange={(e)=>setHighschool(e.target.value)}></input>
+                </div>
+                <div>
+                    <label>Academic Transfer</label>
+                    <input placeholder='Academic Transfer' onChange={(e)=>setAcademicTransfer(e.target.value)}></input>
+                </div>
+                <Button type='submit' onClick={updateAPIData}>Save Information</Button>
+            </form>
+            {/* //put emergency contact component */}
+            <EmergencyContacts/>
+            
         </div>
     )
 }

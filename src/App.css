@@ -1,15 +1,20 @@
 
-.create-form label{
+ .create-form label{
   color:whitesmoke;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
 }
 
-.main{
+ .main{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #212121;
-  color:whitesmoke;
+  /* background-image: url('https://w0.peakpx.com/wallpaper/544/339/HD-wallpaper-mountain-road-in-late-autumn-fall-mountains-autumn-roads-nature.jpg'); */
+  background-size:cover;
+  /* color:whitesmoke; */
   flex-direction: column;
+} 
+
+.nav-design{
+  color:#040468;
 }

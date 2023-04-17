@@ -6,7 +6,7 @@ const AddButton = () => (
     <div>
       <Button
         color='green'
-        content='Add New User'
+        content='Add Emergency Contact'
         icon= {PersonAddAltIcon}
         label={{ basic: true, color: 'green', pointing: 'left'}}
       />
