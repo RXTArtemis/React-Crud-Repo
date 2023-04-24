@@ -9,7 +9,8 @@ import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 // //figure out why react bootstrap isn't working. error says can't resolve
 // import {Nav, Navbar} from 'react-bootstrap';
 import Navbar from './components/Navbar.js';
-import HomePage from './components/Homepage';
+import HomePage from './components/HomePage';
+import AddNewStudent from './components/AddNewStudent';
 
 function App() {
   return (
@@ -48,6 +49,10 @@ function App() {
 
         <Route path='/update'>
           <Update/>
+        </Route>
+
+        <Route path='/add'>
+          <AddNewStudent/>
         </Route>
       </Switch>
       </div>

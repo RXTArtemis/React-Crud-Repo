@@ -57,29 +57,45 @@ const getData=()=>{
                          <Table.HeaderCell>Actions  </Table.HeaderCell>
                        
                      </Table.Row>
-                  
                 </Table.Header>
-  
-      
 
-                <Table.HeaderCell>Update</Table.HeaderCell>
-                <Link to='/update'>
-                     <Table.Cell>
-                         <Button onClick={()=> setData(data)}>Update</Button>
+                <div className='addOperation'>
+                <Table.HeaderCell> Add a New Student</Table.HeaderCell>
+                <Link to='/add'>
+                    <Table.Cell>
+                    {<Button  onClick={()=>setAPIData(APIData.concat(newData))}>Add Student</Button>}
                     </Table.Cell>
                 </Link>
-                <Table.Cell>
-                    <Button onClick={()=>onDelete(data.id)}>Delete</Button>
-                </Table.Cell>
+                </div>
 
+           
              <Table.Body>
                 {APIData.map((data, index)=>{
+                    console.log(data);
                     return(
                         <Table.Row key={index}>
                             <Table.Cell>{data.firstName}</Table.Cell>
                             <Table.Cell>{data.lastName}</Table.Cell>
                             <Table.Cell>{data.checkbox ? 'Registered' : 'Unregistered'}</Table.Cell>
-                            <ActionButtons/>
+                            {/* <ActionButtons/> */}
+                            <div>
+                {/* <div> */}
+                <Link to='/update'>
+                     <Table.Cell>
+                        {<Button onClick={()=>setAPIData(APIData.map
+                        (data =>(data.id === idToUpdate) ? {...data, ...updatedData}: data
+                        ))}>Update</Button>}
+                         {/* <Button onClick={()=> setData(data)}>Update</Button> */}
+                    </Table.Cell>
+                </Link>
+                {/* </div> */}
+                {/* <div> */}
+                <Table.Cell>
+                    {<Button onClick={()=>onDelete(setAPIData(APIData.filter(data =>data.id !== idToDelete)))}> Delete</Button>}
+                    {/* <Button onClick={()=>onDelete(data.id)}>Delete</Button> */}
+                </Table.Cell>
+                {/* </div> */}
+            </div>
                         </Table.Row>
                     )
                 })}
