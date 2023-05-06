@@ -5,18 +5,21 @@ import {useHistory} from 'react-router-dom';
 // let history=useHistory();
 import './Form.css';
 
-export default function Create(){
+export default function Create(props){
     let history =  useHistory();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [checkbox, setCheckbox] = useState(false);
-    const postData = () =>{
+    const postData = (event) =>{
+        event.preventDefault();
         axios.post(`https://642a2fd700dfa3b54740f1fb.mockapi.io/fakeData`,
         {
             firstName,
             lastName,
             checkbox
-        }).then(()=>{
+        }).then((data)=>{
+            console.log(data);
+            props.setAPIData(props.APIData.concat(data))
             history.push('/Read')
         })
 

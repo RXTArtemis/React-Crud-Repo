@@ -5,16 +5,16 @@ import {EditIcon, DeleteIcon} from '@mui/icons-material';
 const ActionButtons = () => (
     <div>
       <Button
-      // onClick={()=>onDelete(setAPIData(APIData.filter(data =>data.id !== idToDelete)))}
+      onClick={()=>onDelete(setAPIData(APIData.filter(data =>data.id !== idToDelete)))}
         color='red'
         content='Delete'
         // icon={DeleteIcon}
         label={{ basic: true, color: 'red', pointing: 'left' }}
       />
       <Button
-      // onClick={()=>setAPIData(APIData.map
-      //   (data =>(data.id === idToUpdate) ? {...data, ...updatedData}: data
-      //   ))}
+      onClick={()=>setAPIData(APIData.map
+        (data =>(data.id === idToUpdate) ? {...data, ...updatedData}: data
+        ))}
         color='blue'
         content='Edit'
         // icon={EditIcon}

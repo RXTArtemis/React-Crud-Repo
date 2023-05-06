@@ -24,8 +24,8 @@ export default function workingNavbar() {
          
             <Nav.Link href="/create" >Create an account</Nav.Link>
             <NavDropdown title="Actions" id="basic-nav-dropdown">
-            <NavDropdown.Item to="/update">Update Student Information</NavDropdown.Item>
-            <NavDropdown.Item to="/read">
+            <NavDropdown.Item href="/update">Update Student Information</NavDropdown.Item>
+            <NavDropdown.Item href="/read">
                 View All Students
               </NavDropdown.Item>
             </NavDropdown>

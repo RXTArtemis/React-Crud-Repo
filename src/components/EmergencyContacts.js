@@ -6,9 +6,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function EmergencyForm(){
   
-    const [id, setId]= useState('');
-
-    useEffect(()=>{
+ const [id, setId]= useState('');
+ useEffect(()=>{
         setId(localStorage.getItem('ID'));
         setFullName(localStorage.getItem('Full Name'));
         setPhoneNumber(localStorage.getItem('Phone Number'));
@@ -44,7 +43,7 @@ return(
                 <label> Full Name </label>
                 <input placeholder="Full Name" onChange={(e)=>setFullName(e.target.value)}></input>
             </div>
-            <h4> Add Contact Information</h4>
+            <h5> Add Contact Information</h5>
             <div>
                 <label> Phone Number </label>
                 <input placeholder="Phone Number" onChange={(e)=>setFullName(e.target.value)}></input>

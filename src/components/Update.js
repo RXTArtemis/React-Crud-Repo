@@ -1,16 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {Button} from 'semantic-ui-react';
 import axios from 'axios';
-
+import './InputForm.css';
 import EmergencyContacts from './EmergencyContacts';
 import './Form.css';
 
 //make sure to have all crud applications
 
 
-export default function Update(){
+export default function Update(props){
   
     const [id,setID] = useState('');
+
+    // const [student, setStudent] = useState(null);
+
+    // async function updateState(e){
+    //     e.preventDefault();
+    //     const updatedData = await postData
+    // }
+
+    //change to props.firstName or something
 
 useEffect(()=>{
     setID(localStorage.getItem('ID'))
@@ -34,27 +43,9 @@ useEffect(()=>{
 
 },[]);
 
-const updateAPIData = () =>{
-    axios.put(`https://642a2fd700dfa3b54740f1fb.mockapi.io/fakeData/${id}`,{
-        firstName,
-        lastName,
-        checkbox,
-        //add other variables and update API keys and pairs
-        address,
-        city,
-        state,
-        zipCode,
-        dateOfBirth,
-        phoneNumber,
-        email,
-        programOfStudy,
-        studentID,
-        dateEnrolled,
-        academicTransfer,
-        highschool,
-        GPA
-    })
-}
+
+
+//simplify update method so that it registers or unregisters student...
 
 //basic information
     const [firstName, setFirstName]= useState('');
@@ -79,6 +70,8 @@ const updateAPIData = () =>{
 
     //maybe do a drop down for these forms with buttons on the side or the bottom..
     return(
+
+        //do I need to pass props through the onChange events?? ex: props.target.value
         <div>
             <form className="create-form">
                 <h2>Basic Student Information</h2>
@@ -123,7 +116,7 @@ const updateAPIData = () =>{
                     <input placeholder='Zip Code' onChange={(e)=>setZipCode(e.target.value)}></input>
                 </div>
 
-                <Button type='submit' onClick={updateAPIData}>Save Information</Button>
+                <Button type='submit' >Save Information</Button>
             </form>
             <span></span>
             <form className='academic-form'>
@@ -152,7 +145,7 @@ const updateAPIData = () =>{
                     <label>Academic Transfer</label>
                     <input placeholder='Academic Transfer' onChange={(e)=>setAcademicTransfer(e.target.value)}></input>
                 </div>
-                <Button type='submit' onClick={updateAPIData}>Save Information</Button>
+                <Button type='submit' onClick={()=>props.updateAPIData()}>Save Information</Button>
             </form>
             {/* //put emergency contact component */}
             <EmergencyContacts/>

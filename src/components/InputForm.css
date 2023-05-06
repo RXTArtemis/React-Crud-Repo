@@ -1,0 +1,10 @@
+input{
+    margin: auto;
+    display: block;
+}
+form, label{
+    color:black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+
+}
